@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED73A95E15471B5F00140E8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED73A95D15471B5F00140E8E /* UIKit.framework */; };
+		ED73A96015471B5F00140E8E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED73A95F15471B5F00140E8E /* Foundation.framework */; };
+		ED73A96215471B5F00140E8E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED73A96115471B5F00140E8E /* CoreGraphics.framework */; };
+		ED73A96415471B5F00140E8E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED73A96315471B5F00140E8E /* CoreData.framework */; };
+		ED73A96A15471B5F00140E8E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED73A96815471B5F00140E8E /* InfoPlist.strings */; };
+		ED73A96C15471B5F00140E8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73A96B15471B5F00140E8E /* main.m */; };
+		ED73A97015471B5F00140E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73A96F15471B5F00140E8E /* AppDelegate.m */; };
+		ED73A97315471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ED73A97115471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodeld */; };
+		ED73A97615471B5F00140E8E /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73A97515471B5F00140E8E /* MasterViewController.m */; };
+		ED73A97915471B5F00140E8E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73A97815471B5F00140E8E /* DetailViewController.m */; };
+		ED73A97C15471B5F00140E8E /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED73A97A15471B5F00140E8E /* MasterViewController_iPhone.xib */; };
+		ED73A97F15471B5F00140E8E /* MasterViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED73A97D15471B5F00140E8E /* MasterViewController_iPad.xib */; };
+		ED73A98215471B5F00140E8E /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED73A98015471B5F00140E8E /* DetailViewController_iPhone.xib */; };
+		ED73A98515471B5F00140E8E /* DetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED73A98315471B5F00140E8E /* DetailViewController_iPad.xib */; };
+		ED73A98F15471B9A00140E8E /* NSDate+TimeDifference.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED73A98C15471B9A00140E8E /* NSDate+TimeDifference.bundle */; };
+		ED73A99015471B9A00140E8E /* NSDate+TimeDifference.m in Sources */ = {isa = PBXBuildFile; fileRef = ED73A98E15471B9A00140E8E /* NSDate+TimeDifference.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ED73A95915471B5F00140E8E /* NSDate+TimeDifferenceExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NSDate+TimeDifferenceExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED73A95D15471B5F00140E8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ED73A95F15471B5F00140E8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ED73A96115471B5F00140E8E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ED73A96315471B5F00140E8E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ED73A96715471B5F00140E8E /* NSDate+TimeDifferenceExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NSDate+TimeDifferenceExample-Info.plist"; sourceTree = "<group>"; };
+		ED73A96915471B5F00140E8E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED73A96B15471B5F00140E8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED73A96D15471B5F00140E8E /* NSDate+TimeDifferenceExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeDifferenceExample-Prefix.pch"; sourceTree = "<group>"; };
+		ED73A96E15471B5F00140E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED73A96F15471B5F00140E8E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED73A97215471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSDate_TimeDifferenceExample.xcdatamodel; sourceTree = "<group>"; };
+		ED73A97415471B5F00140E8E /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		ED73A97515471B5F00140E8E /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		ED73A97715471B5F00140E8E /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ED73A97815471B5F00140E8E /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ED73A97B15471B5F00140E8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		ED73A97E15471B5F00140E8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPad.xib; sourceTree = "<group>"; };
+		ED73A98115471B5F00140E8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		ED73A98415471B5F00140E8E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPad.xib; sourceTree = "<group>"; };
+		ED73A98C15471B9A00140E8E /* NSDate+TimeDifference.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "NSDate+TimeDifference.bundle"; sourceTree = "<group>"; };
+		ED73A98D15471B9A00140E8E /* NSDate+TimeDifference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeDifference.h"; sourceTree = "<group>"; };
+		ED73A98E15471B9A00140E8E /* NSDate+TimeDifference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeDifference.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED73A95615471B5F00140E8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED73A95E15471B5F00140E8E /* UIKit.framework in Frameworks */,
+				ED73A96015471B5F00140E8E /* Foundation.framework in Frameworks */,
+				ED73A96215471B5F00140E8E /* CoreGraphics.framework in Frameworks */,
+				ED73A96415471B5F00140E8E /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED73A94E15471B5F00140E8E = {
+			isa = PBXGroup;
+			children = (
+				ED73A98B15471B8400140E8E /* NSDate+TimeDifference */,
+				ED73A96515471B5F00140E8E /* NSDate+TimeDifferenceExample */,
+				ED73A95C15471B5F00140E8E /* Frameworks */,
+				ED73A95A15471B5F00140E8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED73A95A15471B5F00140E8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED73A95915471B5F00140E8E /* NSDate+TimeDifferenceExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED73A95C15471B5F00140E8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED73A95D15471B5F00140E8E /* UIKit.framework */,
+				ED73A95F15471B5F00140E8E /* Foundation.framework */,
+				ED73A96115471B5F00140E8E /* CoreGraphics.framework */,
+				ED73A96315471B5F00140E8E /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED73A96515471B5F00140E8E /* NSDate+TimeDifferenceExample */ = {
+			isa = PBXGroup;
+			children = (
+				ED73A96E15471B5F00140E8E /* AppDelegate.h */,
+				ED73A96F15471B5F00140E8E /* AppDelegate.m */,
+				ED73A97415471B5F00140E8E /* MasterViewController.h */,
+				ED73A97515471B5F00140E8E /* MasterViewController.m */,
+				ED73A97715471B5F00140E8E /* DetailViewController.h */,
+				ED73A97815471B5F00140E8E /* DetailViewController.m */,
+				ED73A97A15471B5F00140E8E /* MasterViewController_iPhone.xib */,
+				ED73A97D15471B5F00140E8E /* MasterViewController_iPad.xib */,
+				ED73A98015471B5F00140E8E /* DetailViewController_iPhone.xib */,
+				ED73A98315471B5F00140E8E /* DetailViewController_iPad.xib */,
+				ED73A97115471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodeld */,
+				ED73A96615471B5F00140E8E /* Supporting Files */,
+			);
+			path = "NSDate+TimeDifferenceExample";
+			sourceTree = "<group>";
+		};
+		ED73A96615471B5F00140E8E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED73A96715471B5F00140E8E /* NSDate+TimeDifferenceExample-Info.plist */,
+				ED73A96815471B5F00140E8E /* InfoPlist.strings */,
+				ED73A96B15471B5F00140E8E /* main.m */,
+				ED73A96D15471B5F00140E8E /* NSDate+TimeDifferenceExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ED73A98B15471B8400140E8E /* NSDate+TimeDifference */ = {
+			isa = PBXGroup;
+			children = (
+				ED73A98C15471B9A00140E8E /* NSDate+TimeDifference.bundle */,
+				ED73A98D15471B9A00140E8E /* NSDate+TimeDifference.h */,
+				ED73A98E15471B9A00140E8E /* NSDate+TimeDifference.m */,
+			);
+			path = "NSDate+TimeDifference";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED73A95815471B5F00140E8E /* NSDate+TimeDifferenceExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED73A98815471B5F00140E8E /* Build configuration list for PBXNativeTarget "NSDate+TimeDifferenceExample" */;
+			buildPhases = (
+				ED73A95515471B5F00140E8E /* Sources */,
+				ED73A95615471B5F00140E8E /* Frameworks */,
+				ED73A95715471B5F00140E8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NSDate+TimeDifferenceExample";
+			productName = "NSDate+TimeDifferenceExample";
+			productReference = ED73A95915471B5F00140E8E /* NSDate+TimeDifferenceExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED73A95015471B5F00140E8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "satoshi ootake";
+			};
+			buildConfigurationList = ED73A95315471B5F00140E8E /* Build configuration list for PBXProject "NSDate+TimeDifferenceExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ED73A94E15471B5F00140E8E;
+			productRefGroup = ED73A95A15471B5F00140E8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED73A95815471B5F00140E8E /* NSDate+TimeDifferenceExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED73A95715471B5F00140E8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED73A96A15471B5F00140E8E /* InfoPlist.strings in Resources */,
+				ED73A97C15471B5F00140E8E /* MasterViewController_iPhone.xib in Resources */,
+				ED73A97F15471B5F00140E8E /* MasterViewController_iPad.xib in Resources */,
+				ED73A98215471B5F00140E8E /* DetailViewController_iPhone.xib in Resources */,
+				ED73A98515471B5F00140E8E /* DetailViewController_iPad.xib in Resources */,
+				ED73A98F15471B9A00140E8E /* NSDate+TimeDifference.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED73A95515471B5F00140E8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED73A96C15471B5F00140E8E /* main.m in Sources */,
+				ED73A97015471B5F00140E8E /* AppDelegate.m in Sources */,
+				ED73A97315471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodeld in Sources */,
+				ED73A97615471B5F00140E8E /* MasterViewController.m in Sources */,
+				ED73A97915471B5F00140E8E /* DetailViewController.m in Sources */,
+				ED73A99015471B9A00140E8E /* NSDate+TimeDifference.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ED73A96815471B5F00140E8E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED73A96915471B5F00140E8E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ED73A97A15471B5F00140E8E /* MasterViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED73A97B15471B5F00140E8E /* en */,
+			);
+			name = MasterViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		ED73A97D15471B5F00140E8E /* MasterViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED73A97E15471B5F00140E8E /* en */,
+			);
+			name = MasterViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		ED73A98015471B5F00140E8E /* DetailViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED73A98115471B5F00140E8E /* en */,
+			);
+			name = DetailViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		ED73A98315471B5F00140E8E /* DetailViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED73A98415471B5F00140E8E /* en */,
+			);
+			name = DetailViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED73A98615471B5F00140E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED73A98715471B5F00140E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED73A98915471B5F00140E8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSDate+TimeDifferenceExample/NSDate+TimeDifferenceExample-Prefix.pch";
+				INFOPLIST_FILE = "NSDate+TimeDifferenceExample/NSDate+TimeDifferenceExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ED73A98A15471B5F00140E8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NSDate+TimeDifferenceExample/NSDate+TimeDifferenceExample-Prefix.pch";
+				INFOPLIST_FILE = "NSDate+TimeDifferenceExample/NSDate+TimeDifferenceExample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED73A95315471B5F00140E8E /* Build configuration list for PBXProject "NSDate+TimeDifferenceExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED73A98615471B5F00140E8E /* Debug */,
+				ED73A98715471B5F00140E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED73A98815471B5F00140E8E /* Build configuration list for PBXNativeTarget "NSDate+TimeDifferenceExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED73A98915471B5F00140E8E /* Debug */,
+				ED73A98A15471B5F00140E8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ED73A97115471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ED73A97215471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodel */,
+			);
+			currentVersion = ED73A97215471B5F00140E8E /* NSDate_TimeDifferenceExample.xcdatamodel */;
+			path = NSDate_TimeDifferenceExample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ED73A95015471B5F00140E8E /* Project object */;
+}
