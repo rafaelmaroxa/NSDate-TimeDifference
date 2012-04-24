@@ -45,6 +45,10 @@
 {
     NSTimeInterval timeInterval = [self timeIntervalSinceNow];
     
+    if(timeInterval > 0){
+        return [self description];
+    }
+    
     int secondsInADay = 3600*24;
     int secondsInAYear = 3600*24*365;
     int yearsDiff = abs(timeInterval/secondsInAYear); 

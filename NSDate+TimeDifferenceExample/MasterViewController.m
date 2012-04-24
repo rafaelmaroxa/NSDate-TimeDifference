@@ -43,6 +43,72 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    
+    NSArray *fetchedObject =[self.fetchedResultsController fetchedObjects];
+    
+    for(NSManagedObject *object in fetchedObject){
+        [context deleteObject:object];
+    }
+    
+    NSDate *now = [NSDate date];
+    NSDate *date = [now initWithTimeInterval:0 sinceDate:now];
+    NSManagedObject *newManagedObject1 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject1 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-1 sinceDate:now];
+    NSManagedObject *newManagedObject2 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject2 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-3 sinceDate:now];
+    NSManagedObject *newManagedObject3 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject3 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-60 sinceDate:now];
+    NSManagedObject *newManagedObject4 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject4 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-3*60 sinceDate:now];
+    NSManagedObject *newManagedObject5 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject5 setValue:date forKey:@"timeStamp"];
+    
+    date = [now initWithTimeInterval:-3600 sinceDate:now];    
+    NSManagedObject *newManagedObject6 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject6 setValue:date forKey:@"timeStamp"];
+    
+    date = [now initWithTimeInterval:-3*3600 sinceDate:now];
+    NSManagedObject *newManagedObject7 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject7 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-24*3600 sinceDate:now];    
+    NSManagedObject *newManagedObject8 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject8 setValue:date forKey:@"timeStamp"];
+    
+    date = [now initWithTimeInterval:-3*24*3600 sinceDate:now];
+    NSManagedObject *newManagedObject9 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject9 setValue:date forKey:@"timeStamp"];
+
+    date = [now initWithTimeInterval:-365*24*3600 sinceDate:now];    
+    NSManagedObject *newManagedObject10 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject10 setValue:date forKey:@"timeStamp"];
+    
+    date = [now initWithTimeInterval:-3*365*24*3600 sinceDate:now];
+    NSManagedObject *newManagedObject11 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    [newManagedObject11 setValue:date forKey:@"timeStamp"];
+
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+
 }
 
 - (void)viewDidUnload
@@ -78,6 +144,8 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View
