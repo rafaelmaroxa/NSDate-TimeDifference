@@ -54,50 +54,44 @@
         [context deleteObject:object];
     }
     
+    NSMutableArray *dates = [NSMutableArray array];
     NSDate *now = [NSDate date];
-    NSDate *date = [now initWithTimeInterval:0 sinceDate:now];
-    NSManagedObject *newManagedObject1 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject1 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-1 sinceDate:now];
-    NSManagedObject *newManagedObject2 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject2 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-3 sinceDate:now];
-    NSManagedObject *newManagedObject3 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject3 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-60 sinceDate:now];
-    NSManagedObject *newManagedObject4 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject4 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-3*60 sinceDate:now];
-    NSManagedObject *newManagedObject5 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject5 setValue:date forKey:@"timeStamp"];
     
-    date = [now initWithTimeInterval:-3600 sinceDate:now];    
-    NSManagedObject *newManagedObject6 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject6 setValue:date forKey:@"timeStamp"];
+    [dates addObject:[now initWithTimeInterval:60*60*24*366*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*366 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*31*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*31 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*7*4 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*8 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*24*4 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*25 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*60*4 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*61 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:60*4 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:61 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:4 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:2 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:0 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-1 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*7 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*7*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*31 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*31*3 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*366 sinceDate:now]];
+    [dates addObject:[now initWithTimeInterval:-60*60*24*366*3 sinceDate:now]];
     
-    date = [now initWithTimeInterval:-3*3600 sinceDate:now];
-    NSManagedObject *newManagedObject7 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject7 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-24*3600 sinceDate:now];    
-    NSManagedObject *newManagedObject8 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject8 setValue:date forKey:@"timeStamp"];
     
-    date = [now initWithTimeInterval:-3*24*3600 sinceDate:now];
-    NSManagedObject *newManagedObject9 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject9 setValue:date forKey:@"timeStamp"];
-
-    date = [now initWithTimeInterval:-365*24*3600 sinceDate:now];    
-    NSManagedObject *newManagedObject10 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject10 setValue:date forKey:@"timeStamp"];
-    
-    date = [now initWithTimeInterval:-3*365*24*3600 sinceDate:now];
-    NSManagedObject *newManagedObject11 = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    [newManagedObject11 setValue:date forKey:@"timeStamp"];
+    for(NSDate *date in dates){
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        [newManagedObject setValue:date forKey:@"timeStamp"];
+    }
 
     
     // Save the context.
@@ -149,6 +143,10 @@
 }
 
 #pragma mark - Table View
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -168,7 +166,9 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:10];
+
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
