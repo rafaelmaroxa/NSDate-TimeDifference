@@ -11,7 +11,7 @@
 //--------------------------------------------------------------//
 #pragma mark -- NSDate (TimeDifference) --
 //--------------------------------------------------------------//
-@interface NSData (TimeDifference)
+@interface NSDate (TimeDifference)
 
 - (NSString *)localizedStringForKey:(NSString *)key;
 
