@@ -12,7 +12,7 @@ NSDate *date = [now initWithTimeInterval:60 sinceDate:now]
 NSString *text = [date stringWithTimeDifference];
 NSLog(@"%@", text);
 
-Output:1 second later
+Output:1 minute later
 
 
 
