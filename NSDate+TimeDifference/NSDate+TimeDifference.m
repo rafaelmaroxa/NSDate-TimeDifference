@@ -40,7 +40,7 @@
     NSTimeInterval seconds = [self timeIntervalSinceNow];
             
     if(fabs(seconds) < 1)
-        return [self localizedStringForKey:@"jast now"];
+        return [self localizedStringForKey:@"just now"];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
