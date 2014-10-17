@@ -13,7 +13,7 @@
 //--------------------------------------------------------------//
 @implementation NSDate (TimeDifference)
 
-- (NSString *)localizedStringForKey:(NSString *)key
+- (NSString *)localizedStringForKey:(NSString *)key table:(NSString*)table
 {
     static NSBundle *bundle = nil;
     if (bundle == nil)
@@ -31,8 +31,8 @@
             }
         }
     }
-    
-    return [bundle localizedStringForKey:key value:nil table:nil];
+
+    return [bundle localizedStringForKey:key value:nil table:table];
 }
 
 - (BOOL)containsString:(NSString *)part inString:(NSString *)str
@@ -40,14 +40,14 @@
     return [str rangeOfString:part].location != NSNotFound;
 }
 
-- (NSString *)localizedStringForNumber:(NSInteger)number unit:(NSString *)unit
+- (NSString *)localizedStringForNumber:(NSInteger)number unit:(NSString *)unit table:(NSString*)table
 {
     // English language has only 2 forms: 1 year, 2 years, 5 years, 11 years, 101 years, 102 years
     // Russian language has 3 forms: 1 год, 2 года, 5 лет, 11 лет, 101 год, 102 года
     
     //try "more than 2 forms" key
     NSString *firstKey = [self keyForNumber:number unit:unit];
-    NSString *localized = [self localizedStringForKey:firstKey];
+    NSString *localized = [self localizedStringForKey:firstKey table:table];
     
     if (localized && [self containsString:@"%d" inString:localized])
         return [NSString stringWithFormat:localized, abs(number)];
@@ -56,7 +56,7 @@
     
     // if no such key - try "2 forms" key
     NSString *secondKey = [self secondKeyForNumber:number unit:unit];
-    localized = [self localizedStringForKey:secondKey];
+    localized = [self localizedStringForKey:secondKey table:table];
     
     if (localized && [self containsString:@"%d" inString:localized])
         return [NSString stringWithFormat:localized, abs(number)];
@@ -103,35 +103,45 @@
     }
 }
 
-- (NSString *)localizedStringForKey:(NSString *)key fromComponents:(NSDateComponents *)components
+- (NSString *)localizedStringForKey:(NSString *)key fromComponents:(NSDateComponents *)components table:(NSString*)table
 {
     int value = [[components valueForKey:key] integerValue];
     if (value != 0)
-        return [self localizedStringForNumber:value unit:key];
+        return [self localizedStringForNumber:value unit:key table:table];
     else
         return nil;
 }
 
-- (NSString *) stringWithTimeDifference
+- (NSString *)stringWithTimeDifferenceUsingTable:(NSString*)table
 {
     for (NSString *language in [NSLocale preferredLanguages])
     {
         if([language isEqualToString:@"ru"]){
-            return [self stringWithTimeDifferenceRussian];
+            return [self stringWithTimeDifferenceRussianInTable:table];
         }else{
-            return [self stringWithTimeDifferenceEnglish];
+            return [self stringWithTimeDifferenceEnglishInTable:table];
         }
         break;
     }
     return [self description];
 }
 
-- (NSString *) stringWithTimeDifferenceEnglish
+- (NSString *)stringWithTimeDifference
+{
+    return [self stringWithTimeDifferenceUsingTable:nil];
+}
+
+- (NSString *)stringWithAbbreviatedTimeDifference
+{
+    return [self stringWithTimeDifferenceUsingTable:@"Abbreviated"];
+}
+
+- (NSString *) stringWithTimeDifferenceEnglishInTable:(NSString*)table
 {
     NSTimeInterval seconds = [self timeIntervalSinceNow];
     
     if(fabs(seconds) < 1)
-        return [self localizedStringForKey:@"just now"];
+        return [self localizedStringForKey:@"just now" table:table];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
@@ -139,83 +149,83 @@
     
     int year = [[components valueForKey:@"year"]integerValue];
     if(year > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d years later"], abs(year)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d years later" table:table], abs(year)];
     if(year == 1)
-        return [self localizedStringForKey:@"1 year later"];
+        return [self localizedStringForKey:@"1 year later" table:table];
     if(year == -1)
-        return [self localizedStringForKey:@"1 year ago"];
+        return [self localizedStringForKey:@"1 year ago" table:table];
     if(year < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d years ago"], abs(year)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d years ago" table:table], abs(year)];
     
     int month = [[components valueForKey:@"month"]integerValue];
     if(month > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d months later"], abs(month)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d months later" table:table], abs(month)];
     if(month == 1)
-        return [self localizedStringForKey:@"1 month later"];
+        return [self localizedStringForKey:@"1 month later" table:table];
     if(month == -1)
-        return [self localizedStringForKey:@"1 month ago"];
+        return [self localizedStringForKey:@"1 month ago" table:table];
     if(month < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d months ago"], abs(month)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d months ago" table:table], abs(month)];
     
     int week = [[components valueForKey:@"week"]integerValue];
     if(week > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d weeks later"], abs(week)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d weeks later" table:table], abs(week)];
     if(week == 1)
-        return [self localizedStringForKey:@"1 week later"];
+        return [self localizedStringForKey:@"1 week later" table:table];
     if(week == -1)
-        return [self localizedStringForKey:@"1 week ago"];
+        return [self localizedStringForKey:@"1 week ago" table:table];
     if(week < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d weeks ago"], abs(week)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d weeks ago" table:table], abs(week)];
     
     int day = [[components valueForKey:@"day"]integerValue];
     if(day > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d days later"], abs(day)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d days later" table:table], abs(day)];
     if(day == 1)
-        return [self localizedStringForKey:@"1 day later"];
+        return [self localizedStringForKey:@"1 day later" table:table];
     if(day == -1)
-        return [self localizedStringForKey:@"1 day ago"];
+        return [self localizedStringForKey:@"1 day ago" table:table];
     if(day < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d days ago"], abs(day)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d days ago" table:table], abs(day)];
     
     int hour = [[components valueForKey:@"hour"]integerValue];
     if(hour > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d hours later"], abs(hour)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d hours later" table:table], abs(hour)];
     if(hour == 1)
-        return [self localizedStringForKey:@"1 hour later"];
+        return [self localizedStringForKey:@"1 hour later" table:table];
     if(hour == -1)
-        return [self localizedStringForKey:@"1 hour ago"];
+        return [self localizedStringForKey:@"1 hour ago" table:table];
     if(hour < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d hours ago"], abs(hour)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d hours ago" table:table], abs(hour)];
     
     int minute = [[components valueForKey:@"minute"]integerValue];
     if(minute > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d minutes later"], abs(minute)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d minutes later" table:table], abs(minute)];
     if(minute == 1)
-        return [self localizedStringForKey:@"1 minute later"];
+        return [self localizedStringForKey:@"1 minute later" table:table];
     if(minute == -1)
-        return [self localizedStringForKey:@"1 minute ago"];
+        return [self localizedStringForKey:@"1 minute ago" table:table];
     if(minute < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d minutes ago"], abs(minute)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d minutes ago" table:table], abs(minute)];
     
     int second = [[components valueForKey:@"second"]integerValue];
     if(second > 1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d seconds later"], abs(second)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d seconds later" table:table], abs(second)];
     if(second == 1)
-        return [self localizedStringForKey:@"1 second later"];
+        return [self localizedStringForKey:@"1 second later" table:table];
     if(second == -1)
-        return [self localizedStringForKey:@"1 second ago"];
+        return [self localizedStringForKey:@"1 second ago" table:table];
     if(second < -1)
-        return [NSString stringWithFormat:[self localizedStringForKey:@"%d seconds ago"], abs(second)];
+        return [NSString stringWithFormat:[self localizedStringForKey:@"%d seconds ago" table:table], abs(second)];
     
     return [self description];
 }
 
-- (NSString *) stringWithTimeDifferenceRussian
+- (NSString *) stringWithTimeDifferenceRussianInTable:(NSString*)table
 {
     NSTimeInterval seconds = [self timeIntervalSinceNow];
     
     if(fabs(seconds) < 1)
-        return [self localizedStringForKey:@"just now"];
+        return [self localizedStringForKey:@"just now" table:table];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSWeekCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
@@ -225,7 +235,7 @@
     
     for (NSString *key in keys)
     {
-        NSString *result = [self localizedStringForKey:key fromComponents:components];
+        NSString *result = [self localizedStringForKey:key fromComponents:components table:table];
         if (result)
             return result;
     }

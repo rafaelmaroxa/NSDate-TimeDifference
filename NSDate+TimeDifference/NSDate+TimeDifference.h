@@ -14,5 +14,6 @@
 @interface NSDate (TimeDifference)
 
 - (NSString *) stringWithTimeDifference;
+- (NSString *) stringWithAbbreviatedTimeDifference;
 
 @end
